@@ -1,12 +1,10 @@
-# 🚀 3D Portfolio
+# 🚀 Akshaya's Personal Portfolio
 
-A jaw-dropping developer portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. Not your average portfolio template! This one has a fully interactive 3D keyboard where each keycap is a skill.
+A jaw-dropping personal portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. Features a fully interactive 3D keyboard where each keycap represents a skill.
 
-> **Free to use!** This portfolio is open source. If you use it, a credit/link back would be really appreciated 🙏
+This is my **personal portfolio** — not an open source template.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
-
-![Portfolio Preview](https://github.com/Naresh-Khatri/Portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
+![Portfolio Preview](public/assets/projects-screenshots/portfolio/landing.png)
 
 ## ✨ Features
 
@@ -16,7 +14,7 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 - **Light & Dark Mode** — Full theme support with cheeky disclaimer toasts
 - **Responsive** — Works across all screen sizes
 - **Contact Form** — Email delivery via Resend
-- **Analytics** _(optional)_ — Umami analytics integration
+- **Analytics** — Umami analytics integration
 
 ## 🛠️ Tech Stack
 
@@ -43,8 +41,8 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/Naresh-Khatri/3d-portfolio.git
-    cd 3d-portfolio
+    git clone https://github.com/Akshxx/AkshayaPortfolio.git
+    cd AkshayaPortfolio
     ```
 
 2. **Install dependencies:**
@@ -78,37 +76,37 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 
 ---
 
-## 🎨 Make It Your Own
+## 🎨 Personal Configuration
 
-All personal info is centralized in [`src/data/config.ts`](src/data/config.ts). Edit this single file to rebrand the portfolio:
+All personal info is centralized in [`src/data/config.ts`](src/data/config.ts). Edit this single file to customize:
 
 ```ts
 const config = {
-  title: "Your Name | Your Title",
+  title: "Akshaya | Your Title",
   description: {
     long: "Your long description for SEO...",
     short: "Your short description...",
   },
   keywords: ["your", "keywords"],
-  author: "Your Name",
-  email: "you@example.com",
+  author: "Akshaya",
+  email: "your@email.com",
   site: "https://yoursite.com",
 
   // GitHub stars button in the header
-  githubUsername: "your-github-username",
-  githubRepo: "your-repo-name",
+  githubUsername: "Akshxx",
+  githubRepo: "AkshayaPortfolio",
 
   social: {
     twitter: "https://x.com/you",
     linkedin: "https://linkedin.com/in/you",
     instagram: "https://instagram.com/you",
     facebook: "https://facebook.com/you",
-    github: "https://github.com/you",
+    github: "https://github.com/Akshxx",
   },
 };
 ```
 
-Other files you'll want to customize:
+Other files to customize:
 
 | File | What to change |
 |---|---|
@@ -154,15 +152,9 @@ The portfolio supports optional realtime features powered by a **separate backen
 
 These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment variable is set. Without it, the portfolio works perfectly fine as a static site — no realtime features, no backend dependency.
 
-> [!NOTE]
-> The backend API is **not open source**. This is intentional! Too many people have cloned the portfolio and claimed they built it from scratch. The realtime server stays private to keep the live experience unique make make it standout.
-
-
 ---
 
 ## 🚀 Deployment
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
 
 This site is deployed on **Vercel**. To deploy your own:
 
@@ -173,16 +165,6 @@ This site is deployed on **Vercel**. To deploy your own:
 
 ---
 
-## 🤝 Contributing
-
-If you'd like to contribute or suggest improvements, feel free to open an issue or submit a pull request. All contributions are welcome!
-
----
-
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
-
-If you use this portfolio, a credit or link back to the [original repo](https://github.com/Naresh-Khatri/3d-portfolio) would be much appreciated ❤️
-
-Note on analytics: a deployed copy reports its own hostname once per browser (nothing else — no visitor, page, or referrer data) so I can see where the template gets used.
+This is a **personal portfolio** — all rights reserved. Not for public use, distribution, or modification.
