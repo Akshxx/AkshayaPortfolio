@@ -137,75 +137,26 @@ export type Experience = {
   skills: SkillNames[];
 };
 
+// Add your work experience here
 export const EXPERIENCE: Experience[] = [
-  {
-    id: 1,
-    startDate: "2026",
-    endDate: "Present",
-    title: "President",
-    company: "Qwiklabs Developer Club, SRMIST",
-    description: [
-      "Drive the strategic vision for the club, leading the core team to organize major campus-wide hackathons and tech initiatives.",
-      "Spearhead technical workshops and developer programs for 500+ students.",
-      "Foster campus tech culture through competitive programming, hackathons, and industry collaborations.",
-    ],
-    skills: [
-      SkillNames.REACT,
-      SkillNames.NEXTJS,
-      SkillNames.TS,
-      SkillNames.PYTHON,
-      SkillNames.JAVA,
-      SkillNames.AWS,
-      SkillNames.DEVOPS,
-      SkillNames.FIREBASE,
-    ],
-  },
-  {
-    id: 2,
-    startDate: "2026",
-    endDate: "2026",
-    title: "Full-stack Developer",
-    company: "NeevAI / SuperCloud (NeevCloud Pvt. Ltd.)",
-    description: [
-      "Engineered the FastAPI, Celery, and PostgreSQL backend for Srijan — an AI engineering assistant.",
-      "Co-authored the system design RFC for managing agent lifecycles, live progress streaming, and resource cleanup.",
-      "Integrated NeevCloud SDK for scalable cloud infrastructure and GPU resource management.",
-      "Built async job queues processing AI workloads with real-time WebSocket updates.",
-    ],
-    skills: [
-      SkillNames.PYTHON,
-      SkillNames.FASTAPI,
-      SkillNames.TENSORFLOW,
-      SkillNames.PYTORCH,
-      SkillNames.POSTGRES,
-      SkillNames.REDIS,
-      SkillNames.DOCKER,
-      SkillNames.AWS,
-    ],
-  },
-  {
-    id: 3,
-    startDate: "2025",
-    endDate: "2025",
-    title: "Full-stack Web Developer",
-    company: "EazyByts.com",
-    description: [
-      "Collaborated with senior developers to build robust web applications during first professional internship.",
-      "Gained hands-on experience in team collaboration, code reviews, and industry workflows.",
-      "Worked on full-stack features spanning frontend interfaces and backend APIs.",
-      "Contributed to production deployments and learned scalable system design patterns.",
-    ],
-    skills: [
-      SkillNames.REACT,
-      SkillNames.NODEJS,
-      SkillNames.EXPRESS,
-      SkillNames.POSTGRES,
-      SkillNames.REDIS,
-      SkillNames.TAILWIND,
-      SkillNames.GIT,
-      SkillNames.DOCKER,
-    ],
-  },
+  // Example:
+  // {
+  //   id: 1,
+  //   startDate: "2024",
+  //   endDate: "Present",
+  //   title: "Software Engineer",
+  //   company: "Your Company",
+  //   description: [
+  //     "Description of your role and achievements",
+  //     "Another bullet point",
+  //   ],
+  //   skills: [
+  //     SkillNames.REACT,
+  //     SkillNames.NEXTJS,
+  //     SkillNames.TS,
+  //     SkillNames.TAILWIND,
+  //   ],
+  // },
 ];
 
 export const themeDisclaimers = {
