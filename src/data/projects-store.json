@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "id": "srijan",
+      "category": "AI Engineering Assistant",
+      "title": "Srijan",
+      "description": "An AI engineering assistant for managing agent lifecycles, live progress streaming, and resource cleanup — built on NeevCloud infrastructure.",
+      "shortDescription": "AI engineering platform for managing agent lifecycles with real-time progress streaming.",
+      "thumbnail": "/assets/projects-screenshots/srijan/landing.svg",
+      "videoPreview": "",
+      "screenshots": [
+        "landing.svg"
+      ],
+      "skills": {
+        "frontend": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS"
+        ],
+        "backend": [
+          "Python",
+          "FastAPI",
+          "Celery",
+          "PostgreSQL",
+          "Docker",
+          "Go"
+        ]
+      },
+      "github": "#",
+      "live": "#",
+      "featured": true,
+      "createdAt": "2026-01-15T00:00:00.000Z",
+      "updatedAt": "2026-01-15T00:00:00.000Z"
+    },
+    {
+      "id": "eazybyts",
+      "category": "Full-stack Web Applications",
+      "title": "EazyByts.com",
+      "description": "Professional internship experience building scalable web applications with modern full-stack technologies.",
+      "shortDescription": "Full-stack web development internship building production applications.",
+      "thumbnail": "/assets/projects-screenshots/eazybyts/landing.svg",
+      "videoPreview": "",
+      "screenshots": [
+        "landing.svg"
+      ],
+      "skills": {
+        "frontend": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS"
+        ],
+        "backend": [
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "MongoDB",
+          "Docker"
+        ]
+      },
+      "github": "#",
+      "live": "#",
+      "featured": true,
+      "createdAt": "2025-06-01T00:00:00.000Z",
+      "updatedAt": "2025-06-01T00:00:00.000Z"
+    }
+  ]
+}
