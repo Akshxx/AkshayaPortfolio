@@ -1,4 +1,4 @@
-# 🚀 Akshaya's Personal Portfolio
+# 🚀 Akshaya's Portfolio
 
 A jaw-dropping personal portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. Features a fully interactive 3D keyboard where each keycap represents a skill.
 
