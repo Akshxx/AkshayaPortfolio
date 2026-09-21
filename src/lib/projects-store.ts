@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { query, initDatabase } from "./db";
 
 export interface StoredProject {
   id: string;
@@ -21,54 +20,113 @@ export interface StoredProject {
   updatedAt: string;
 }
 
-const STORE_PATH = path.join(process.cwd(), "src/data/projects-store.json");
+function mapRow(row: any): StoredProject {
+  return {
+    id: row.id,
+    category: row.category,
+    title: row.title,
+    description: row.description,
+    shortDescription: row.shortDescription,
+    thumbnail: row.thumbnail,
+    videoPreview: row.videoPreview || "",
+    screenshots: row.screenshots || [],
+    skills: row.skills || { frontend: [], backend: [] },
+    github: row.github || "",
+    live: row.live || "",
+    featured: row.featured || false,
+    createdAt: row.createdAt,
+    updatedAt: row.updatedAt,
+  };
+}
 
-export function getProjects(): StoredProject[] {
+export async function getProjects(): Promise<StoredProject[]> {
   try {
-    const data = fs.readFileSync(STORE_PATH, "utf-8");
-    return JSON.parse(data).projects;
+    const result = await query('SELECT * FROM projects ORDER BY "createdAt" DESC');
+    return result.rows.map(mapRow);
   } catch {
     return [];
   }
 }
 
-export function getProjectById(id: string): StoredProject | null {
-  const projects = getProjects();
-  return projects.find((p) => p.id === id) || null;
+export async function getProjectById(id: string): Promise<StoredProject | null> {
+  try {
+    const result = await query('SELECT * FROM projects WHERE id = $1', [id]);
+    return result.rows[0] ? mapRow(result.rows[0]) : null;
+  } catch {
+    return null;
+  }
 }
 
-export function createProject(project: Omit<StoredProject, "id" | "createdAt" | "updatedAt"> & { id?: string }): StoredProject {
-  const projects = getProjects();
+export async function createProject(project: Omit<StoredProject, "id" | "createdAt" | "updatedAt"> & { id?: string }): Promise<StoredProject> {
   const now = new Date().toISOString();
-  const newProject: StoredProject = {
-    ...project,
-    id: project.id || project.title.toLowerCase().replace(/\s+/g, "-"),
-    createdAt: now,
-    updatedAt: now,
-  };
-  projects.unshift(newProject);
-  saveProjects(projects);
-  return newProject;
+  const id = project.id || project.title.toLowerCase().replace(/\s+/g, "-");
+
+  await query(
+    `INSERT INTO projects (id, category, title, description, "shortDescription", thumbnail, "videoPreview", screenshots, skills, github, live, featured, "createdAt", "updatedAt")
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)`,
+    [
+      id,
+      project.category,
+      project.title,
+      project.description,
+      project.shortDescription,
+      project.thumbnail,
+      project.videoPreview || "",
+      project.screenshots || [],
+      JSON.stringify(project.skills || { frontend: [], backend: [] }),
+      project.github || "",
+      project.live || "",
+      project.featured || false,
+      now,
+      now,
+    ]
+  );
+
+  return { ...project, id, createdAt: now, updatedAt: now };
 }
 
-export function updateProject(id: string, updates: Partial<StoredProject>): StoredProject | null {
-  const projects = getProjects();
-  const index = projects.findIndex((p) => p.id === id);
-  if (index === -1) return null;
-  const updated = { ...projects[index], ...updates, updatedAt: new Date().toISOString() };
-  projects[index] = updated;
-  saveProjects(projects);
-  return updated;
+export async function updateProject(id: string, updates: Partial<StoredProject>): Promise<StoredProject | null> {
+  const fields: string[] = [];
+  const values: unknown[] = [];
+  let paramIndex = 1;
+
+  const allowedFields = [
+    "category", "title", "description", "shortDescription", "thumbnail",
+    "videoPreview", "screenshots", "skills", "github", "live", "featured"
+  ];
+
+  for (const key of allowedFields) {
+    if (key in updates) {
+      fields.push(`"${key}" = $${paramIndex++}`);
+      if (key === "skills") {
+        values.push(JSON.stringify(updates[key]));
+      } else if (key === "screenshots") {
+        values.push(updates[key]);
+      } else {
+        values.push((updates as any)[key]);
+      }
+    }
+  }
+
+  if (fields.length === 0) return null;
+
+  fields.push(`"updatedAt" = $${paramIndex++}`);
+  values.push(new Date().toISOString());
+  values.push(id);
+
+  await query(`UPDATE projects SET ${fields.join(", ")} WHERE id = $${paramIndex}`, values);
+
+  const result = await query('SELECT * FROM projects WHERE id = $1', [id]);
+  return result.rows[0] ? mapRow(result.rows[0]) : null;
 }
 
-export function deleteProject(id: string): boolean {
-  const projects = getProjects();
-  const filtered = projects.filter((p) => p.id !== id);
-  if (filtered.length === projects.length) return false;
-  saveProjects(filtered);
-  return true;
+export async function deleteProject(id: string): Promise<boolean> {
+  try {
+    const result = await query('DELETE FROM projects WHERE id = $1', [id]);
+    return result.rowCount !== null && result.rowCount > 0;
+  } catch {
+    return false;
+  }
 }
 
-function saveProjects(projects: StoredProject[]): void {
-  fs.writeFileSync(STORE_PATH, JSON.stringify({ projects }, null, 2));
-}
+export { initDatabase };
