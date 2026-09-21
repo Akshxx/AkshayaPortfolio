@@ -2,7 +2,7 @@ import { Link } from "@/types";
 
 const links: Link[] = [
   {
-    title: 'Landing',
+    title: 'Home',
     href: '/',
     thumbnail: '/assets/nav-link-previews/landing.png'
   },
