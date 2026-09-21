@@ -57,7 +57,7 @@ export async function fetchProjects(): Promise<ApiProject[]> {
     const res = await fetch("/api/projects", { cache: "no-store" });
     if (!res.ok) return [];
     const data = await res.json();
-    return data.projects || [];
+    return Array.isArray(data?.projects) ? data.projects : [];
   } catch {
     return [];
   }
