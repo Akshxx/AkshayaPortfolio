@@ -258,8 +258,8 @@ function ElasticCursor() {
       gsap.to(pos, {
         x: e.clientX,
         y: e.clientY,
-        duration: 1.5,
-        ease: "elastic.out(1, 0.5)",
+        duration: 0.6,
+        ease: "power2.out",
         onUpdate: () => {
           vel.x = (e.clientX - pos.x) * 1.2;
           vel.y = (e.clientY - pos.y) * 1.2;

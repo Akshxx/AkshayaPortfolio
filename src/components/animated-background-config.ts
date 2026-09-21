@@ -59,7 +59,7 @@ export const STATES = {
       position: { x: 0, y: -40, z: 0 },
       rotation: {
         x: 0,
-        y: Math.PI / 12,
+        y: 0,
         z: 0,
       },
     },
@@ -68,7 +68,7 @@ export const STATES = {
       position: { x: 0, y: -40, z: 0 },
       rotation: {
         x: 0,
-        y: Math.PI / 6,
+        y: 0,
         z: 0,
       },
     },

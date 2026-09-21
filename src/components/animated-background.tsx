@@ -295,7 +295,7 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
       gsap.fromTo(
         keycap.position,
         { y: 200 },
-        { y: 50, duration: 0.5, delay: 0.1, ease: "bounce.out" }
+        { y: 0, duration: 0.5, delay: 0.1, ease: "bounce.out" }
       );
     });
   };
@@ -499,7 +499,7 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
     <Suspense fallback={<div>Loading...</div>}>
       {wasmReady && (
         <Spline
-          className="w-full h-full fixed"
+          className="w-full h-full fixed inset-0 top-0 left-0 pointer-events-auto"
           ref={splineContainer}
           onLoad={(app: Application) => {
             setSplineApp(app);
