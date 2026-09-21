@@ -1,3 +1,4 @@
+import "dotenv/config";
 import fs from "fs";
 import path from "path";
 import { createProject, initDatabase } from "@/lib/projects-store";

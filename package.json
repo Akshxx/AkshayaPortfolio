@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "tsx scripts/seed-db.ts",
+    "seed": "tsx --env-file=.env.local scripts/seed-db.ts",
     "db:init": "tsx -e \"import { initDatabase } from '@/lib/db'; initDatabase().then(() => console.log('DB initialized')).catch(console.error)\""
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "devtools-detector": "^2.0.22",
+    "dotenv": "^18.0.1",
     "embla-carousel-react": "^8.1.8",
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
